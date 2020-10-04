@@ -2,9 +2,9 @@
   "name": "academiaapi",
   "version": "1.0.0",
   "description": "CRUD para academia",
-  "main": "server.js",
+  "main": "api.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "api": "nodemon api.js"
   },
   "keywords": [],
   "author": "Lucas Pampolha",
