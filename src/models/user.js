@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs')
+//const bcrypt = require('bcryptjs')
 const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
@@ -6,14 +6,18 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    login: {
+        type: String
+        //required: true
+    },
     matricula: {
-        type: String,
-        required: true,
-        unique: true
+        type: String
+        //required: true,
+        //unique: true
     },
     password: {
         type: String,
-        required: true
+        //required: true
     },
     is_active: {
         type: Boolean,
