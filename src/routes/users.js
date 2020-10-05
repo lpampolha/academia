@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 const Users = require('../models/user')
 
-// @route   GET /user/:email
+// @route   GET /
 // @desc    DETAIL user
 // @access  Public
-router.get('/', [], async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         let user = await Users.find({})
         res.status(200).json(user)
@@ -14,7 +14,7 @@ router.get('/', [], async (req, res) => {
     }
 })
 
-router.get('/:id', [], async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         let user = await Users.findById(req.params.id)
         res.status(200).json(user)
@@ -25,11 +25,12 @@ router.get('/:id', [], async (req, res) => {
 
 router.post('/', async (req, res) => {
     let { name, login, matricula , password, is_active, is_admin } = req.body
-    
     try{
         let user = await Users.create(req.body)
-    }catch (error){
-        res.status(422).json(error)
+        res.status(200).json(user)
+    }catch (err){
+        console.error(error.message)
+        res.status(422).json({"error" : "Server Error"})
     }
 })
 

@@ -1,6 +1,6 @@
 const express = require('express')
 const routeUsers = require('./src/routes/users')
-//const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const app = express()
 const connectDB = require('./config/db')
 const PORT = 3001
@@ -8,7 +8,7 @@ const PORT = 3001
 //Define Rotas
 app.use(express.json())
 app.use('/users', routeUsers)
-//app.use(bodyParser.urlencoded({ extended:true }))
+app.use(bodyParser.urlencoded({ extended:true }))
 
 //Conexão com a base
 connectDB()
