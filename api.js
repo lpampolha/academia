@@ -3,7 +3,7 @@ const routeUsers = require('./src/routes/users')
 const bodyParser = require('body-parser')
 const app = express()
 const connectDB = require('./config/db')
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 //Define Rotas
 app.use(express.json())
