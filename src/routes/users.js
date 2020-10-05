@@ -5,7 +5,10 @@ const Users = require('../models/user')
 // @route   GET /
 // @desc    DETAIL user
 // @access  Public
-router.get('/', async (req, res) => {
+
+router.get('/', (req, res) => res.send('Hello!'))
+
+router.get('/users', async (req, res) => {
     try {
         let user = await Users.find({})
         res.status(200).json(user)
@@ -14,7 +17,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/users/:id', async (req, res) => {
     try {
         let user = await Users.findById(req.params.id)
         res.status(200).json(user)
@@ -23,7 +26,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-router.post('/', async (req, res) => {
+router.post('/users', async (req, res) => {
     let { name, login, matricula , password, is_active, is_admin } = req.body
     try{
         let user = await Users.create(req.body)

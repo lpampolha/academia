@@ -7,7 +7,8 @@ const PORT = process.env.PORT || 3001
 
 //Define Rotas
 app.use(express.json())
-app.use('/users', routeUsers)
+//app.use('/users', routeUsers)
+app.use(routeUsers)
 app.use(bodyParser.urlencoded({ extended:true }))
 
 //Conexão com a base
